@@ -9,7 +9,13 @@ RSC = {
         'player': 'resources/img/player.png',
         'enemy': 'resources/img/enemy.png',
         'bullet': 'resources/img/bullet.png',
-        'laser': 'resources/img/laser6.png'
+        'laser': {'resources/img/laser1.png'
+                  'resources/img/laser2.png'
+                  'resources/img/laser3.png'
+                  'resources/img/laser4.png'
+                  'resources/img/laser5.png'
+                  'resources/img/laser6.png'
+                  'resources/img/laser7.png'}
     },
     'sound': {
         'background': 'audio/background.wav',
@@ -98,7 +104,7 @@ class Bullet:
         return False
 
 class Laser(Player):
-    SPEED = 0.5
+    # лазер активируется на z
     def __init__(self,player_rect,display_size):
         self.img = [pygame.image.load('resources/img/laser1.png'),
                     pygame.image.load('resources/img/laser2.png'),
