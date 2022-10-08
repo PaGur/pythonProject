@@ -218,6 +218,7 @@ class Game:
             if not self.in_bound(self.bullet.rect()):
                 # если пуля вылетела за границы экрана, удаляем ее
                 self.bullet = None
+        # Обовновление лазера
         if self.laser:
             if self.laser.count != 1500:
                 self.laser.counter()
@@ -252,6 +253,7 @@ class Game:
             self.bullet.redraw(display)
         if self.enemy:
             self.enemy.redraw(display)
+        # перерисовка лазера
         if self.laser:
             self.laser.redraw(display)
         # запрашиваем обновление экрана
@@ -261,6 +263,7 @@ class Game:
         self.player.event_process(event)
         if Bullet.fire(event) and self.bullet is None:
             self.bullet = Bullet(self.player.rect())
+        # вызов лазера
         if Laser.fire(event) and self.laser is None:
             self.laser = Laser(self.player.rect(),self.display_size)
 
